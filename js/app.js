@@ -44,12 +44,11 @@ $(document).ready(function(){
   	$('#guessList').append('<li>'+ userGuess +'</li>');
   	
   	/*--- Feedback ---*/
-  		if(userGuess == rN);
+  		if(userGuess == rN)
   			document.getElementById("feedback").innerHTML = "You Won!";
   	
-  			//else if(userGuess <= rN + 10 && userGuess >= rN - 10);
-  				//document.getElementById("feedback").innerHTML = "Hot";
-  			
+  			else if(userGuess <= rN + 10 && userGuess >= rN - 10)
+  				document.getElementById("feedback").innerHTML = "Hot";
   			
 
   			//else if(userGuess <= rN + 15 && userGuess >= rN - 15);
