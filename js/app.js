@@ -48,6 +48,7 @@ $(document).ready(function(){
 
   	/*--- User's Guess---*/
 	  	var userGuess = $('#userGuess').val();
+	  	$('#userGuess').val('');
 
 	  	/*--- Check for valid answer---*/
   		if(userGuess % 1 !== 0 || userGuess === ''){
