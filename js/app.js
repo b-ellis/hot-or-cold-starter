@@ -35,11 +35,11 @@ $(document).ready(function(){
 
   	/*--- Start a new game upon .new click ---*/
   	$(".new").click(function(){
+  		rN = getRandomNumber();
   		guessedNumbers = [];
   		$('#count').text(0);
   		$('#feedback').text('Make your Guess!');
   		$('#guessList').empty();
-			// clear all game logic and anything in the html relevant to the current game.
   	});
 
   	$('.button').on("click", function(event){
@@ -74,19 +74,23 @@ $(document).ready(function(){
 			guessedNumbers.push(userGuess);
 
 	  	/*--- Feedback ---*/
-  		if(userGuess == rN)
+  		if (userGuess == rN)
   			document.getElementById("feedback").innerHTML = "You Won!";
 
-			else if(userGuess <= rN + 10 && userGuess >= rN - 10);
+			else if(userGuess <= rN + 10 && userGuess >= rN - 10)
 				document.getElementById("feedback").innerHTML = "Hot";
 			// continue logic
 
 
-	  			//else if(userGuess <= rN + 15 && userGuess >= rN - 15);
-	  				//document.getElementById("feedback").innerHTML = "Kinda Hot";
+	  			else if(userGuess <= rN + 15 && userGuess >= rN - 15)
+	  				document.getElementById("feedback").innerHTML = "Kinda Hot";
 
 
-	  			//else if(userGuess <= rN + 20 && userGuess >= rN - 20);
-	  				//document.getElementById("feedback").innerHTML = "cold";
+	  			else if(userGuess <= rN + 20 && userGuess >= rN - 20)
+	  				document.getElementById("feedback").innerHTML = "Cold";
+
+	  			else if(userGuess <= rN + 30 && userGuess >= rN -30)
+	  				document.getElementById("feedback").innerHTML = "Ice Cold";
+  		
   	});
 });
