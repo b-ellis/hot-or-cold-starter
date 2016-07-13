@@ -52,16 +52,15 @@ $(document).ready(function(){
 
   	/*--- User's Guess---*/
 	  	var userGuess = $('#userGuess').val();
-	  	$('#userGuess').val(''); 
 
 	  	/*--- Check for valid answer---*/
   		if(userGuess % 1 !== 0 || userGuess === ''){
-			document.getElementById("feedback").innerHTML = "Please input a Number";
+				document.getElementById("feedback").innerHTML = "Please input a Number";
   			return;
   		}
 
   		if(userGuess < 0 || userGuess > 101){
-			document.getElementById("feedback").innerHTML = "Please input a number between 1 and 100";
+				document.getElementById("feedback").innerHTML = "Please input a number between 1 and 100";
   			return;
   		}
 
@@ -74,23 +73,30 @@ $(document).ready(function(){
 			guessedNumbers.push(userGuess);
 
 	  	/*--- Feedback ---*/
-  		if (userGuess == rN)
-  			document.getElementById("feedback").innerHTML = "You Won!";
-
-			else if(userGuess <= rN + 10 && userGuess >= rN - 10)
-				document.getElementById("feedback").innerHTML = "Hot";
-			// continue logic
-
-
-	  			else if(userGuess <= rN + 15 && userGuess >= rN - 15)
-	  				document.getElementById("feedback").innerHTML = "Kinda Hot";
-
-
-	  			else if(userGuess <= rN + 20 && userGuess >= rN - 20)
-	  				document.getElementById("feedback").innerHTML = "Cold";
-
-	  			else if(userGuess <= rN + 30 && userGuess >= rN -30)
-	  				document.getElementById("feedback").innerHTML = "Ice Cold";
-  		
+  		if (userGuess == rN) {
+				document.getElementById("feedback").innerHTML = "You Won!";
+			}
+			else {
+			 	if(userGuess <= rN + 10 && userGuess >= rN - 10) {
+					document.getElementById("feedback").innerHTML = "Hot";
+				} else {
+					if(userGuess <= rN + 15 && userGuess >= rN - 15) {
+						document.getElementById("feedback").innerHTML = "Kinda Hot";
+					}
+					else {
+						if(userGuess <= rN + 20 && userGuess >= rN - 20) {
+							document.getElementById("feedback").innerHTML = "Cold";
+						}
+						else {
+								if(userGuess <= rN + 30 && userGuess >= rN -30) {
+										document.getElementById("feedback").innerHTML = "Ice Cold";
+								}
+								else {
+									document.getElementById("feedback").innerHTML = "Way too far !";
+								}
+						}
+					}
+				}
+			}
   	});
 });
