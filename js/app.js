@@ -2,6 +2,7 @@
 
 function getRandomNumber() {
 		var rN = Math.floor((Math.random() * 100) + 1);
+		console.log(rN);
 		return rN;
 }
 
@@ -16,7 +17,7 @@ function existsInArray(array, element) {
 
 $(document).ready(function(){
 
-	console.log(rN);
+	console.log(getRandomNumber);
 
 	var rN = getRandomNumber();
 	var guessedNumbers = [];
@@ -34,8 +35,9 @@ $(document).ready(function(){
 
   	/*--- Start a new game upon .new click ---*/
   	$(".new").click(function(){
-  		location.reload();
-  		//console.log('it works');
+  		$('#count').text(0);
+  		$('#feedback').text('Make your Guess!');
+  		$('#guessList').empty();
 			// clear all game logic and anything in the html relevant to the current game.
   	});
 
@@ -49,22 +51,21 @@ $(document).ready(function(){
 
   	/*--- User's Guess---*/
 	  	var userGuess = $('#userGuess').val();
+	  	$('#userGuess').val(''); 
 
 	  	/*--- Check for valid answer---*/
   		if(userGuess % 1 !== 0 || userGuess === ''){
-  			alert("Please input a Number");
-				// do something in the feedback HTML element.
+			document.getElementById("feedback").innerHTML = "Please input a Number";
   			return;
   		}
 
   		if(userGuess < 0 || userGuess > 101){
-  			alert("please input a Number between 1 and 100");
-				// same as above
+			document.getElementById("feedback").innerHTML = "Please input a number between 1 and 100";
   			return;
   		}
-  		//if number already guesed alert user
+
 			if (existsInArray(guessedNumbers, userGuess)) {
-				// alert the user somehow
+				document.getElementById("feedback").innerHTML = "Number has already been guessed";
 				return;
 			}
 
@@ -74,7 +75,8 @@ $(document).ready(function(){
 	  	/*--- Feedback ---*/
   		if(userGuess == rN)
   			document.getElementById("feedback").innerHTML = "You Won!";
-			else if(userGuess <= rN + 10 && userGuess >= rN - 10)
+
+			else if(userGuess <= rN + 10 && userGuess >= rN - 10);
 				document.getElementById("feedback").innerHTML = "Hot";
 			// continue logic
 
