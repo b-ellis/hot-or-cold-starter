@@ -35,6 +35,7 @@ $(document).ready(function(){
 
   	/*--- Start a new game upon .new click ---*/
   	$(".new").click(function(){
+  		guessedNumbers = [];
   		$('#count').text(0);
   		$('#feedback').text('Make your Guess!');
   		$('#guessList').empty();
