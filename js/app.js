@@ -45,10 +45,6 @@ $(document).ready(function(){
   	$('.button').on("click", function(event){
 
   		event.preventDefault();
-  	/*--- Guess Count---*/
-  		$('#count').html(function(i, val){
-  		return +val+1
-  		});
 
   	/*--- User's Guess---*/
 	  	var userGuess = $('#userGuess').val();
@@ -68,6 +64,11 @@ $(document).ready(function(){
 				document.getElementById("feedback").innerHTML = "Number has already been guessed";
 				return;
 			}
+
+			/*--- Guess Count---*/
+  		$('#count').html(function(i, val){
+  		return +val+1
+  		});
 
 	  	$('#guessList').append('<li>'+ userGuess +'</li>');
 			guessedNumbers.push(userGuess);
