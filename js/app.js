@@ -2,7 +2,7 @@
 
 function getRandomNumber() {
 		var rN = Math.floor((Math.random() * 100) + 1);
-		console.log(rN);
+		//console.log(rN);
 		return rN;
 }
 
@@ -17,7 +17,7 @@ function existsInArray(array, element) {
 
 $(document).ready(function(){
 
-	console.log(getRandomNumber);
+	//console.log(getRandomNumber);
 
 	var rN = getRandomNumber();
 	var guessedNumbers = [];
